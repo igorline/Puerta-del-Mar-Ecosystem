@@ -3,17 +3,13 @@ title: This is my title
 layout: default
 ---
 
-# Puerta Del Mar /WEB Documentation
-
-![](https://hackpad-attachments.s3.amazonaws.com/hackpad.com_7s3S0xoCL63_p.274545_1416594146178_puerta_del_mar_final.jpg)
-
 ## Abstract
 
-Puerta del Mar is a marine ecosystem simulation environment engine. The project is started as a collaborative effort during Interactivos?14 workshop at MediaLab Prado in Madrid. Theme for this 16th edition of the event is "Rethinking collective behaviour and action" and it's reflected in our work: ecosystem by itself is already a collaborative environment as well we are working on implementing various scenarios and tools in ecosystem to show difference between collaborative/collective action and individual/selfish.
+Puerta del Mar is a marine ecosystem simulation environment engine. The project is started as a collaborative effort during **Interactivos?14 workshop** at MediaLab Prado in Madrid. Theme for this 16th edition of the event is "Rethinking collective behaviour and action" and it's reflected in our work: ecosystem by itself is already a collaborative environment as well we are working on implementing various scenarios and tools in ecosystem to show difference between collaborative/collective action and individual/selfish.
 
 ## Strategy
 
-Technically and strategically we are building a universal engine, which will be relatively easy to adopt to use as a core in different simulations, ecosystems and visualisations from very abstract to quite realistic, just to mention few ideas: planetarium/cosmos visualisation, microbiological sim <u>- immune system visualisation??,</u> historical war battles - realtime tweakable visualisations, timeline based visualisations like evolution of language/alphabet or may be bananas agricultural selection? Igor is concerned: marine ecosystem is a good universal example to start with coding. It will give different examples, which could be adopted later for building up variations mentioned before. 
+Technically and strategically we are building a universal engine, which will be relatively easy to adopt to use as a core in different simulations, ecosystems and visualisations from very abstract to quite realistic, just to mention few ideas: planetarium/cosmos visualisation, microbiological sim - immune system visualisation??, historical war battles - realtime tweakable visualisations, timeline based visualisations like evolution of language/alphabet or may be bananas agricultural selection? Igor is concerned: marine ecosystem is a good universal example to start with coding. It will give different examples, which could be adopted later for building up variations mentioned before. 
 
 ## Practice
 
@@ -21,27 +17,17 @@ The first practical application of the engine will be in Andrey's MA dissertatio
 
 ## Description
 
-Current version (development continues) of Puerta del Mar Ecosystem Engine is a representation of a very basic marine ecosystem written in Python and visualised in Processing.py. It's consist of few species including Plankton - creatures growing and reproducing from solar power, basically plants; Herbivores -  species eating only Plankton; two kinds of Carnivores - species eating both Herbivores and other kind of Carnivores but not Plankton. <u>You might want to say that it is a first approximation but in future we want to try to make an algorithm capable to generate their own species without the need to categorize them previously.</u> Environment includes a Sun giving a power for Plankton and changing a Temperature of a Water. There is a Day/Night cycle, according to it water temperature is changing and all species migrating. The migration is happening due to binding to Niches - each of the ecosystem habitants have it's own Comfort Temperature and so depth or Niche. Each individual have parameters like: Mass, Energy, Max energy tolerated, Health, Health loss rate, Regeneration rate, Absortion rate, Hardness, Internal clock, Size etc. The interaction and actions includes: Wondering - basically no action, just moving somewhere; Deciding; Attacking; Escaping; Eating; Looking for partner for reproduction; Reproducing. Also there is Genes --- in fact they are --- clusters of genes of a phenotype: Mass, Energy, Energy Loss rate, Health, Regeneration rate, Speed, Acceleration, SightRange, Feeding Power, Comfortable Temperature (range), Socialization. The last one is more abstract gene and, for example it might affect the decision between cooperation or selfish action. In general cooperation is very common in real life, as well as in our engine: species can form gangs to feed, attack or defend. In next versions will be implemented SuperSpecies - a big number of species might unite to form a one big and powerful individual. As an alternative there could be scenario when a gang <u>start a</u>
+Current version (development continues) of Puerta del Mar Ecosystem Engine is a representation of a very basic marine ecosystem written in Python and visualised in Processing.py. It's consist of few species including Plankton - creatures growing and reproducing from solar power, basically plants; Herbivores -  species eating only Plankton; two kinds of Carnivores - species eating both Herbivores and other kind of Carnivores but not Plankton. <u>You might want to say that it is a first approximation but in future we want to try to make an algorithm capable to generate their own species without the need to categorize them previously.</u> Environment includes a Sun giving a power for Plankton and changing a Temperature of a Water. There is a Day/Night cycle, according to it water temperature is changing and all species migrating. The migration is happening due to binding to Niches - each of the ecosystem habitants have it's own Comfort Temperature and so depth or Niche. Each individual have parameters like: Mass, Energy, Max energy tolerated, Health, Health loss rate, Regeneration rate, Absortion rate, Hardness, Internal clock, Size etc. The interaction and actions includes: Wondering - basically no action, just moving somewhere; Deciding; Attacking; Escaping; Eating; Looking for partner for reproduction; Reproducing. Also there is Genes --- in fact they are --- clusters of genes of a phenotype: Mass, Energy, Energy Loss rate, Health, Regeneration rate, Speed, Acceleration, SightRange, Feeding Power, Comfortable Temperature (range), Socialization. The last one is more abstract gene and, for example it might affect the decision between cooperation or selfish action. In general cooperation is very common in real life, as well as in our engine: species can form gangs to feed, attack or defend. In next versions will be implemented SuperSpecies - a big number of species might unite to form a one big and powerful individual. As an alternative there could be scenario when a gang <u>start a tornado around enemy or around prey to attack or protect</u>. Such a behaviours will be possible with implementing hormones and advanced instincts. Now there is a basic usage of instincts - Eat, Escape, Reproduce. 
 
-<u> tornado around enemy or around pr</u>
-
-<u>ey to attac</u>
-
-<u>k or protec</u>
-
-<u>t. </u>Such a behaviours will be possible with implementing hormones and advanced instincts. Now there is a basic usage of instincts - Eat, Escape, Reproduce. 
-
-## Tech Documentation (now and next)
+# Tech Documentation (now and next)
 
 ## Elements and Organisms
 
-**Plankton**
 
+### Plankton
 Plankton is storing energy to reproduce, regenerate and move (slowly). The cost of mithosis is rather small. If energy is going below zero it starts loosing health. When energy is full the plankton starts to increase its mass. As soon as mass reaches 2, the plankton divides. Absortion rate could be directly related to the size,
 
-*
-
-<u>DNA</u>: mass, energy, energy loss rate, health, regeneration rate, absorbtion rate, hardness.
+<u>DNA</u>mass, energy, energy loss rate, health, regeneration rate, absorbtion rate, hardness.
 
 <u>Properties</u>
 
@@ -65,18 +51,16 @@ Plankton is storing energy to reproduce, regenerate and move (slowly). The cost 
 *   Implement move function (slow random movement)
 *   Limit the photosynthesis to +-90% of sunlight. That is, IF sunlight power is below 90%, then you can't do photosynthesis.
 
-**Herbivores**
+### Herbivores
 
 Herbivores eat plankton to get energy. They lay eggs to reproduce. They are _R strategas_ (see below). If energy is going below zero it starts loosing health. They will tend to scape from the Carnivors, their natural predators. When they are in danger, their _comfort zone_ reduces in order to be more close to each other.
 
-<u>DNA</u>: mass, energy, energy loss rate, health, regeneration rate, speed, acceleration, sightRange, sight angle, feeding power (teeth sharpness?), comfortable temperature (range), socialisation (or confort zone radius)
-
+<u>DNA</u>mass, energy, energy loss rate, health, regeneration rate, speed, acceleration, sightRange, sight angle, feeding power (teeth sharpness?), comfortable temperature (range), socialisation (or confort zone radius)
 <u>Properties</u>
 
 *   Max energy tolerated
 *   Critical age of reproduction [mix, max]  -- [Maturity, Ageing]
-*   Determined by Maturity** **(min) and Ageing** **(max) 
-*   Watch below: [Energy Related Properties](https://puertadelmar.hackpad.com/Puerta-Del-Mar-Nov-13-CORE-UENGRO78oF8#:h=Energy-related-properties)
+*   Determined by Maturity (min) and Aging (max) 
 *   Critical energy of reproduction
 *   Reproduction energy rate cost 
 *   Range of energy being hungry  
@@ -97,13 +81,11 @@ Herbivores eat plankton to get energy. They lay eggs to reproduce. They are _R s
 *   Die
 *   Evaluate
 
-**Carnivores I and II**
+### Carnivores I and II
 
 Carnivores eat Herbivores and other Carnivores to get energy. They give birth to few number of offspring (usually 1). They are _K strategies_ (see below). If energy is going below zero it starts loosing health. 
 
-*
-
-<u>DNA</u>: mass, energy, energy loss rate, health, regeneration rate, speed, acceleration, sightRange, sight angle, comfortable temperature range
+<u>DNA</u>mass, energy, energy loss rate, health, regeneration rate, speed, acceleration, sightRange, sight angle, comfortable temperature range
 
 <u>Properties</u>
 
@@ -139,8 +121,7 @@ Carnivores eat Herbivores and other Carnivores to get energy. They give birth to
 *   A function divides the numerical value assigned to each letter between 8, then multiply the result by the amount of times each letter appears in the string
 *   After that, sum all the results to get the final value (fenotype) of the creature
 
-*
-<undefined><li>**EXAMPLE...**</li></undefined>
+### EXAMPLE
 
 This DNA string determines, for instance, the SIZE of the species  [AABCDCBA]
 
@@ -172,11 +153,9 @@ We sum all the values...
 
 14,375 will be the final value of the size of the creature
 
-**Hardy-Weinberg Principle**
+## Hardy-Weinberg Principle
 
 States that [genotype frequencies](http://en.wikipedia.org/wiki/Genotype_frequencies) in a population will remain constant from generation to generation in the absence of other evolutionary influences. 
-
-*
 
 **Abstract DNA Class for living creatures (related to all current creatures):**
 
@@ -215,8 +194,6 @@ States that [genotype frequencies](http://en.wikipedia.org/wiki/Genotype_frequen
 
 **Max energy tolerated** - Constrain the maximum energy to the Energy value determined by DNA. (Your body cannot store more than that amount of Energy)
 
-## Hormones
-
 **Critical energy of reproduction** - Amount of energy needed to reproduce (usually 100%) - **FURTHER _-_** We will introduce a Hormone that will control the firing of reproduction function. The chances that this Hormone fires the reproduction will increase with the amount of energy of the organism. (For instance:
 
 *   Energy at 50% - Chances of search for reproduction at 10% 
@@ -234,34 +211,32 @@ States that [genotype frequencies](http://en.wikipedia.org/wiki/Genotype_frequen
 
 ## Behaviour Rules 
 
-Life Strategies:
+### Life Strategies:
 
-**R** estrategas - Short lifecycle, lots of species, lots of breeding   |--|
+**R** estrategas - Short lifecycle, lots of species, lots of breeding
 
 **K** estrategas - Long lifecycle, small amount of species, small of breeding
-<undefined><li>**Altruism VS Egoism**</li></undefined>
 
-**Cooperation and Conflict -** In our upcoming flocking system, we will have three rulesalignment, cohesion, and separation. **Alignment **and **Cohesion **will ask the elements to _cooperate_i.e. work together to stay together and move together. **Separation**, however, will ask the elements to _compete_ for space.
+### Altruism VS Egoism
 
-*   The **radius **of each of this 3 functions should be different...
+Cooperation and Conflict - In our upcoming flocking system, we will have three rulesalignment, cohesion, and separation. Alignment and Cohesion will ask the elements to _cooperate_i.e. work together to stay together and move together. Separation, however, will ask the elements to _compete_ for space.
+
+The radius of each of this 3 functions should be different...
 *   Separation Radius Detection
 *   Allignment Radius Detection
 *   Cohesion Radius Detection 
 
-<undefined><li>**Confrontation**</li></undefined>
+### Confrontation
 
 This function will describe the mechanism that the species use to decide between attack or escape in any given conflict.
 
 Combat Points : [(Force x Mass) / 2] x [Experience x (Energy/10)]
-<ul style="list-style: none;"><li>
-</li></ul style="list-style: none;">
 
 ## Reproduction Rules
 
 *   <u>Plancton </u>- Mithosis: It splits in two creatures, with the same DNA with probability of mutation
 *   <u>Herbívoros</u> - Sexual (R), more than 3 to 50 individuals per Successful Reproduction
 *   <u>Carnívoros </u>- Sexual (K), only 1 individual per Successful Reproduction
-<undefined>*
 
 ## Energy Absortion Rates (Digestive system)
 
@@ -277,7 +252,7 @@ Carnivores
 
 ## General Rules
 
-*   If **energy **reaches **0**, then loose health
-*   If **health **reaches** 0**, then die
-*   No reproduction if the genes are **not compatible** enough (like 
+*   If energy reaches 0, then loose health
+*   If health reaches 0, then die
+*   No reproduction if the genes are not compatible enough
 
